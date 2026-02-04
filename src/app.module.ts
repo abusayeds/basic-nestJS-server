@@ -7,15 +7,11 @@ import { UsersModule } from './modules/user/user.module';
 
 @Module({
   imports: [
-    // Global config
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
     }),
-
-    // Prisma module (TypeORM এর পরিবর্তে)
     PrismaModule,
-
     UsersModule,
   ],
   controllers: [AppController],
