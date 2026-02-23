@@ -5,13 +5,17 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"  // Change to your database type
+  provider = "postgresql"  
   url      = env("DATABASE_URL")
 }
-
+enum  Role  {
+   user 
+   admin  
+}
 model User { 
    id        Int      @id @default(autoincrement())
   email     String   @unique
+  role      Role   @default(user)
   name      String
   phone     String
   password  String
