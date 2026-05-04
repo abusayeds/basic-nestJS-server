@@ -1,5 +1,14 @@
 import { managementService } from './management.service';
-import {Body,Controller,Get,HttpCode,HttpStatus,Post,Query,Res,} from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+  Query,
+  Res,
+} from '@nestjs/common';
 import { crateManagementDto } from './dto/management.dto';
 import type { Response } from 'express';
 import { sendResponse } from 'src/utils/sendResponse';
@@ -22,12 +31,10 @@ export class managementController {
       data: data,
     });
   }
+  // ===========  crate management  =============== //
   @Get()
   @HttpCode(HttpStatus.OK)
-  async managementGetAll(
-    @Res() res: Response ,
-    @Query ('type') type : string
-  ) {
+  async managementGetAll(@Res() res: Response, @Query('type') type: string) {
     const data = await this.managementService.managementGetAllDB(type);
     sendResponse(res, {
       statusCode: 200,
@@ -36,5 +43,4 @@ export class managementController {
       data: data,
     });
   }
-
 }

@@ -1,10 +1,9 @@
 import { Controller, Get, Res } from '@nestjs/common';
 
-
 @Controller()
 export class AppController {
   @Get()
-  getRoot(@Res() res ) {
+  getRoot(@Res() res) {
     res.status(200).send(`
       <!DOCTYPE html>
       <html lang="en">

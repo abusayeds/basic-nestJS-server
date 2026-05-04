@@ -4,11 +4,11 @@ import { usersService } from './user.service';
 
 @Controller('users')
 export class usersController {
-    constructor(private readonly usersService: usersService) { }
-    //================= Registration ================= //
-    @Post('register')
-    @HttpCode(HttpStatus.CREATED)
-    async register(@Body() createUserDto: createUserDto) {
-        return this.usersService.register(createUserDto);
-    }
+  constructor(private readonly usersService: usersService) {}
+  //================= Registration ================= //
+  @Post('register')
+  @HttpCode(HttpStatus.CREATED)
+  async register(@Body() createUserDto: createUserDto) {
+    return this.usersService.register(createUserDto);
+  }
 }
